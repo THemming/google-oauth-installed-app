@@ -10,10 +10,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/???"
+    "url": "https://github.com/themming/google-application-auth-http-client"
   },
   "bugs": {
-    "url": "https://github.com/???"
+    "url": "https://github.com/themming/google-application-auth-http-client/issues"
   },
   "scripts": {
     "test": "mocha test/spec"
