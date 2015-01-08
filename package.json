@@ -1,0 +1,31 @@
+{
+  "name": "google-application-auth-http-client",
+  "version": "0.0.1",
+  "description": "Google authenticated http client. Uses oauth2 application authentication. Useful for system/cli applications.",
+  "author": "Tim Hemming",
+  "license": "MIT",
+  "keywords": [
+    "google",
+    "oauth2"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/???"
+  },
+  "bugs": {
+    "url": "https://github.com/???"
+  },
+  "scripts": {
+    "test": "mocha test/spec"
+  },
+  "main": "./google-application-auth-http-client.js",
+  "dependencies": {
+    "open": "^0.0.5"
+  },
+  "devDependencies": {
+    "mocha": "^2.0.1",
+    "chai": "^1.10.0",
+    "mockery": "^1.4.0",
+    "sinon": "^1.12.2"
+  }
+}
