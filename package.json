@@ -1,24 +1,19 @@
 {
-  "name": "google-application-auth-http-client",
+  "name": "oauth-installed-app-helper",
   "version": "0.0.1",
-  "description": "Google authenticated http client. Uses oauth2 application authentication. Useful for system/cli applications.",
+  "description": "A NodeJS library to store and retrieve authentication details through other OAuth libraries. Useful for system/cli applications.",
   "author": "Tim Hemming",
   "license": "MIT",
   "keywords": [
-    "google",
     "oauth2"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/themming/google-application-auth-http-client"
+    "url": "https://github.com/themming/oauth-installed-app-helper"
   },
   "bugs": {
-    "url": "https://github.com/themming/google-application-auth-http-client/issues"
+    "url": "https://github.com/themming/oauth-installed-app-helper/issues"
   },
-  "scripts": {
-    "test": "mocha test/spec"
-  },
-  "main": "./google-application-auth-http-client.js",
   "dependencies": {
     "open": "^0.0.5",
     "q": "^1.1.2"
