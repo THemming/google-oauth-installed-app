@@ -16,6 +16,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "googleapis": "^1.1.0"
+    "googleapis": "^1.1.0",
+    "open": "0.0.5"
   }
 }
