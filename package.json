@@ -14,9 +14,15 @@
   "bugs": {
     "url": "https://github.com/themming/oauth-installed-app-helper/issues"
   },
-  "dependencies": {},
+  "dependencies": {
+    "open": "~0.0.5",
+    "googleapis": "~1.1.1"
+  },
   "devDependencies": {
-    "googleapis": "^1.1.0",
-    "open": "0.0.5"
+    "chai": "~1.10.0",
+    "mocha": "~2.1.0",
+    "mockery": "~1.4.0",
+    "request": "~2.51.0",
+    "sinon": "~1.12.2"
   }
 }
