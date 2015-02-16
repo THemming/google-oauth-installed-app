@@ -1,5 +1,5 @@
 /**
- * A manual end-to-end test for oauth-installed-app-helper.
+ * A manual end-to-end test for google-oauth-installed-app.
  *
  * Using the calendar v3 api as a target to test against.
  * "config/google-auth-config.json" needs to be setup with the developer's api credentials and the developer's api

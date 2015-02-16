@@ -1,7 +1,7 @@
 {
-  "name": "oauth-installed-app-helper",
+  "name": "google-oauth-installed-app",
   "version": "0.0.1",
-  "description": "A NodeJS library to store and retrieve authentication details through other OAuth libraries. Useful for system/cli applications.",
+  "description": "A Node library to request and store authorisation details for Google OAuth2 installed applications.",
   "author": "Tim Hemming",
   "license": "MIT",
   "keywords": [
@@ -9,10 +9,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/themming/oauth-installed-app-helper"
+    "url": "https://github.com/themming/google-oauth-installed-app"
   },
   "bugs": {
-    "url": "https://github.com/themming/oauth-installed-app-helper/issues"
+    "url": "https://github.com/themming/google-oauth-installed-app/issues"
   },
   "dependencies": {
     "open": "~0.0.5"
