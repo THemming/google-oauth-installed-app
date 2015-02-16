@@ -149,27 +149,25 @@ describe('Google API authorise wrapper', function () {
             });
         });
 
-        describe('and the api call receives a FORBIDDEN authorisation response', function () {
+        describe('and the api call receives FORBIDDEN error code', function () {
+            var expectedErrorMessage = 'Insufficient Permissions';
             var api = {
                 public1: function (params, callback) {
-                    callback(null, null, {statusCode: 403});
+                    callback({code: 403, message: expectedErrorMessage}, null);
                 }
             };
 
-            it('clears authoriser tokens and does not call back the api consumer', function (done) {
-                var authoriseCount = 0;
-                var responseCallback = sinon.spy();
+            it('clears authoriser tokens and calls back the api consumer with the error information', function (done) {
+                var responseCallback = function (err) {
+                    sinon.assert.calledOnce(authoriserStub.clearTokens);
+                    assert.equal(403, err.code);
+                    assert.equal(expectedErrorMessage, err.message);
+                    done();
+                };
 
                 var authoriserStub = {
                     authorise: function (callback) {
-                        if (authoriseCount === 0) {
-                            authoriseCount++;
-                            callback(null);
-                        } else {
-                            sinon.assert.calledOnce(this.clearTokens);
-                            sinon.assert.notCalled(responseCallback);
-                            done();
-                        }
+                        callback(null);
                     },
                     clearTokens: sinon.spy()
                 };
@@ -179,10 +177,10 @@ describe('Google API authorise wrapper', function () {
             });
         });
 
-        describe('and the api call receives an invalid grant error', function () {
+        describe('and the api call receives UNAUTHORISED error code', function () {
             var api = {
                 public1: function (params, callback) {
-                    callback({type: 'invalid_grant'}, null, null);
+                    callback({code: 401}, null);
                 }
             };
 
