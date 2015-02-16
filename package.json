@@ -1,6 +1,6 @@
 {
   "name": "google-oauth-installed-app",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A Node library to request and store authorisation details for Google OAuth2 installed applications.",
   "author": "Tim Hemming",
   "license": "MIT",
