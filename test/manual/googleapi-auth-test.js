@@ -5,21 +5,16 @@
  * "config/google-auth-config.json" needs to be setup with the developer's api credentials and the developer's api
  * account needs to have Calendar API access enabled in the "Google Developers Console".
  */
-
 var google = require('googleapis');
-var AuthConfig = require('../../lib/auth-config');
-var AuthStore = require('../../lib/auth-store');
-var Receiver = require('../../lib/http-receiver');
-var Authoriser = require('../../lib/authoriser');
-var AuthoriseWrapper = require('../../lib/authorise-wrapper');
+var oauthInstalledApp = require('../../index.js');
 
 // Uncomment for verbose http request debugging
 //require('request').debug = true;
 
-var authConfig = new AuthConfig(__dirname + '/config/google-auth-config.json');
-var authStore = new AuthStore(__dirname + '/config/_auth-store.json');
+var authConfig = new oauthInstalledApp.GoogleAuthConfig(__dirname + '/config/google-auth-config.json');
+var authStore = new oauthInstalledApp.AuthStore(__dirname + '/config/_auth-store.json');
 
-var receiver = new Receiver();
+var receiver = new oauthInstalledApp.HttpReceiver();
 
 var oauth2Client = new google.auth.OAuth2(authConfig.getClientId(), authConfig.getClientSecret(), receiver.getRedirectUri());
 
@@ -28,9 +23,9 @@ google.options({auth: oauth2Client});
 
 var calendar = google.calendar('v3');
 
-var authoriser = new Authoriser('https://www.googleapis.com/auth/calendar', oauth2Client, receiver, authStore);
+var authoriser = new oauthInstalledApp.Authoriser('https://www.googleapis.com/auth/calendar', oauth2Client, receiver, authStore);
 
-AuthoriseWrapper.wrapApiMethods(calendar, authoriser);
+oauthInstalledApp.AuthoriseWrapper.wrapApiMethods(calendar, authoriser);
 
 calendar.calendarList.list({}, function (err, response) {
     if (err) {
